@@ -1,10 +1,16 @@
 ---
 layout: post
+<<<<<<< HEAD
 author: Brent
 published: true
 title:  "Welcome to Jekyll!"
 date:   2013-06-07 17:52:16
 categories: post
+=======
+title:  "Welcome to Jekyll!"
+date:   2013-06-07 16:09:03
+categories: jekyll update
+>>>>>>> 82f771be8d3579c34eab862792f54c286156ab46
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

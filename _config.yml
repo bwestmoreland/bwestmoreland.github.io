@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: bwestmoreland
 pygments: true
 paginate: 5
@@ -5,3 +6,7 @@ relative_permalinks: false
 permalink: /:title.html
 timezone: America/New_York
 markdown: rdiscount
+=======
+name: Your New Jekyll Site
+pygments: true
+>>>>>>> 82f771be8d3579c34eab862792f54c286156ab46
