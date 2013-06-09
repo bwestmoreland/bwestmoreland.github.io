@@ -1,8 +1,10 @@
 ---
 layout: post
+author: Brent
+published: true
 title:  "Welcome to Jekyll!"
 date:   2013-06-07 17:52:16
-categories: jekyll update
+categories: post
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

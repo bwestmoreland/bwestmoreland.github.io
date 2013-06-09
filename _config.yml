@@ -1,2 +1,7 @@
-name: Your New Jekyll Site
+name: bwestmoreland
 pygments: true
+paginate: 5
+relative_permalinks: false
+permalink: /:title.html
+timezone: America/New_York
+markdown: rdiscount

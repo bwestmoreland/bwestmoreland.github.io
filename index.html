@@ -1,13 +1,71 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Latest News
 ---
+   
+  <div id="content" role="main">
+      <section class="section alt" id="promo">
+  <div class="container">
+    <div class="hero-unit">
+      <h1>Latest Posts</h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+        {% for post in site.posts %}
+          
+            <article class="blog-post">
+              <header class="blog-header">
+                <h2>
+                  <a href={{ post.url }}> {{ post.title }} </a>
+                  <small>
+                    by
+                    <a href="#"> {{ post.author }}</a>,
+                    {{ post.date | date_to_string }}
+                  </small>
+                </h2>
+              </header>
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+              {% if post.picture %}
+                <figure class="thumbnail-figure">
+                  <a href={{ post.url }}>
+                    <img alt="" src={{ post.picture }}/>
+                  </a>
+                  <figcaption class="thumbnail-title">
+                    <h3>
+                      <span>{{ post.caption }}</span>
+                    </h3>
+                  </figcaption>
+                </figure>
+              {% endif %}
+              
+              <div id="post">
+                {{ post.excerpt }}
+              </div>
+            </article>
+          
+        {% endfor %}
+        
+        <ul class="pager">
+          <li class="previous">
+            <a href="#">
+              <i class="icon-chevron-left"></i>
+              Older
+            </a>
+          </li>
+          <li class="next">
+            <a href="#">
+              Newer
+              <i class="icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% include aside.html %}
+    </div>
+  </div>
+</section>
 </div>
