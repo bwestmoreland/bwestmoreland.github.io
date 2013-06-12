@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Greenville CocoaHeads - Intro to iOS Testing</title>
+
+    <link rel="stylesheet/less" type="text/css" href="css/slides-content.less" />
+    <link rel="stylesheet/less" type="text/css" href="css/slides-style.less" />
+    <script src="js/libs/less-1.1.3.min.js" type="text/javascript"></script>
+    <script src="js/libs/prettify.js" type="text/javascript"></script>
+    <script src="js/config.js" type="text/javascript" defer></script>
+    <script src="js/slides.js" type="text/javascript" defer></script>
+  </head>
+  
+  <body>
+
+    <!-- content begin -->
+    <div id="content" class="hidden">
+  
+      <!-- backgrounds -->
+      <div id="bg-white" class="background"></div>
+      <div id="bg-black" class="background"></div>
+      <div id="bg-downtown" class="background"></div>
+      <div id="bg-cocoacup" class="background"></div>
+      <div id="bg-fallspark" class="background"></div>
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide title" background-id="bg-cocoacup">
+  <header class="middle">
+    <h1>Introduction to iOS Testing</h1>
+    <h2>Greenville Cocoaheads</h2>
+    <img src="images/logos.png" class="logo" width="200"></img>
+  </header>
+</article>
+    
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Me</h1>
+  </header>
+  <section>
+    <img src="images/bw.jpg" width="210px" style="border-radius: 5px; box-shadow: 3px 3px 4px #999">
+    <p style="display: inline-block">
+      <strong><em>Brent Westmoreland</em></strong><br />
+       Group<br />
+      Emerging Technology Engineer<br />
+      CocoaHead<br />
+      Coffee Snob <br />
+      <a href="http://twitter.com/bwestmoreland">@bwestmoreland</a>
+    </p>
+  </section>
+</article>
+    
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>Focus</h2>
+  </header>
+  <section>
+    <img src="images/word-cloud.jpg" height="400px" />
+    <p style="display: inline-block; width: 600px; margin: 20px">
+      There's a lot of vocabulary in testing.  This presentation will focus strictly on Unit Testing
+      in the Cocoa frameworks.  
+    </p>
+  </section>
+</article>
+    
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>So What is Unit Testing?</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li>Should define the behavior of a class or unit of execution.</li>
+      <li>Should be fast</li>
+      <li>Should not have implementation dependencies. (Network, DB, etc.)</li>
+      <li>Should be atomic</li>
+    </ul>
+  </section>
+</article>
+    
+    
+    
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>How do tests define behavior?</h2>
+  </header>
+  <section>
+    <p>Assertions, Expectations, &amp Shoulds</p>
+    <code>STAssertNil(a1, description, ...)</code><br />
+    <code>STAssertNotNil(a1, description, ...)</code> <br />
+    <code>STAssertTrue(expression, description, ...)</code><br />
+    <code>STAssertFalse(expression, description, ...)</code><br />
+    <code>STAssertEqualObjects(a1, a2, description, ...)</code><br />
+    <code>STAssertEquals(a1, a2, description, ...)</code><br />
+    <p>Depending on your chosen Framework, you will be asserting or expecting specific results of the test expressions 
+      you write. (We'll get more into these shortly.)</p>
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>Unit tests should be fast.</h2>
+  </header>
+  <section class="centercontents">
+    <h1>How fast?</h1>
+    <p>&nbsp &lt 1 second per test.</p>
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>How does one avoid implementation dependencies?</h2>
+  </header>
+  <section>
+    <h2>Test Doubles...</h2>
+    <ul data-build>
+      <li>Mocks</li>
+      <li>&amp Stubs</li>
+      <li>&amp Fakes</li>
+      <li>Oh My!</li>
+    </ul>
+    <ul class="unstyled" data-build>
+      <li><a href="http://martinfowler.com/articles/mocksArentStubs.html"/>READ THIS!</a></li>
+    </ul>
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>So my tests have to be ATOMIC?</h2>
+  </header>
+  <section class="centercontents">
+    <img src="images/atomic.png" height="500px">
+  </section>
+</article>
+
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-cocoacup">
+  <header>
+    <h1>Intro to Testing</h1>
+    <h2>ATOMIC? SRSLY?</h2>
+  </header>
+  <section>
+    <p>Atomic like properties, not like bombs.  Your tests should be independent and capable
+      of being run without stepping on one another.  There should not be deep dependencies
+      between tests.</p>
+  </section>
+</article>
+
+    
+ 
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide title" background-id="bg-downtown">
+  <header class="middle">
+    <h1>Testing Workflows</h1>
+  </header>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-downtown">
+  <header>
+    <h1>Testing Workflows</h1>
+    <h2>So I just code the same way and then write tests now, right?</h2>
+  </header>
+  <section>
+    This is an actual viewDidLoad method.  It's over 200 lines long.
+    I DARE you to write a complete unit test for it.  Heck, I dare you to even read and understand it in an afternoon.<br/>
+    <br />
+
+    <img src="images/viewDidLoad4.png" height="250px">
+    <img src="images/viewDidLoad3.png" height="250px">
+    <img src="images/viewDidLoad2.png" height="250px">
+    <img src="images/viewDidLoad1.png" height="250px">
+  </section>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-downtown">
+  <header>
+    <h1>Testing Workflows</h1>
+    <h2>Test Driven Development</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li>Red</li>
+      <li>Green</li>
+      <li>Refactor</li>
+    </ul>
+  </section>
+  <section class="centercontents">
+    <img src="images/TDD.png">
+  </section>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-downtown">
+  <header>
+    <h1>TDD Basic Workflow</h1>
+    <h2>Three main components</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li>Red
+        <pre>
+- (void)testWindowIsKeyAfterApplicationLaunch
+{
+    [appDelegate application: nil didFinishLaunchingWithOptions: nil];
+    STAssertTrue(window.keyWindow,
+                 @"App delegate's window should be key");
+}
+        </pre>  
+      </li>
+      <li>Green
+        <pre>
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions: //
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+        </pre>
+      </li>
+    </ul>
+  </section>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-downtown">
+  <header>
+    <h1>TDD Basic Workflow</h1>
+  </header>
+  <section>
+         Refactor
+        <pre>
+
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions: //
+{
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (UIWindow *)window
+{
+    if (!_window){
+        _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    return _window;
+}
+        </pre>
+  </section>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide title" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+  </header>
+</article>
+      
+ 
+ 
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>Create a Test Target</h2>
+  </header>
+  <section class="centercontents">
+    <img src="images/creating-test-target.png" />
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>You now have a test target</h2>
+  </header>
+  <section class="centercontents">
+    <img src="images/test-target-default.png" height="600px" />
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>There are many, and they each have their strengths</h2>
+  </header>
+  <section>
+    <em>OCUnit (SenTestKit)</em>
+    <ul data-build>
+      <li>Currently the Default</li>
+      <li>jUnit style syntax</li>
+      <li>Easy to debug</li>
+    </ul>
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>There are many, and they each have their strengths</h2>
+  </header>
+  <section>
+    <em>XCTest (Based on OCUnit)</em>
+      <ul data-build>
+        <li>Soon to be the Default</li>
+        <li>Easy to debug</li>
+        <li>Can test from the command line</li>
+        <li>Can test UIKit</li>
+        <li>Same ugly syntax</li>
+        <li>Very little public info so far, but if you know OCUnit you should be ok</li>
+      </ul>
+  </section>
+</article>
+
+
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>There are many, and they each have their strengths</h2>
+  </header>
+  <section>
+    <em>Kiwi, Specta, Cedar</em>
+      <ul data-build>
+        <li>Awesome RSPEC style syntax</li>
+        <li>Powerful expectations out of the box</li>
+        <li>Block based</li>
+        <li>Hard as hell to debug</li>
+        <li>Some effort to install and configure</li>
+      </ul>
+  </section>
+</article>
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-fallspark">
+  <header>
+    <h1>Testing Frameworks</h1>
+    <h2>There are many, and they each have their strengths</h2>
+  </header>
+  <section>
+    <em>Lots of Test Double and Assertion Frameworks</em>
+      <ul data-build>
+        <li>OCMock</li>
+        <li>OCHamrest</li>
+        <li>OCMockito</li>
+        <li>Expecta</li>
+      </ul>
+  </section>
+</article> 
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide title" background-id="bg-black">
+  <header class="top">
+    <h1>STOP TALKING AND DEMO!</h1>
+  </header>
+</article>
+ 
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-black">
+  <header>
+    <h1>Further Reading</h1>
+    <h2>Web</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li><a href="http://nshipster.com/unit-testing/"/>Matt Thompson - NSHipster</a></li>
+      <li><a href="http://iosunittesting.com"/>Ron Lisle - iOS Unit Testing</a></li>
+      <li><a href="http://martinfowler.com/articles/mocksArentStubs.html"/>Martin Fowler - Mocks are not Stubs</a></li>
+    </ul>
+  </section>
+</article>
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-black">
+  <header>
+    <h1>Even Further Reading</h1>
+    <h2>Books</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li><a href="https://itunes.apple.com/us/book/test-driving-ios-development/id502345143?mt=11"/>Test Driving iOS Development with Kiwi - Daniel Steinberg.</a></li>
+      <li><a href="https://itunes.apple.com/us/book/test-driven-ios-development/id516930513?mt=11"/>Test Driven iOS Development - Graham Lee</a></li>
+      <li><a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code - Robert C. Martin</a></li> 
+    </ul>
+  </section>
+</article>
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<article class="slide" background-id="bg-black">
+  <header>
+    <h1>Watching</h1>
+    <h2>Videos</h2>
+  </header>
+  <section>
+    <ul data-build>
+      <li><a href="http://www.lynda.com/iOS-tutorials/Unit-Testing-iOS-Applications-Xcode/91949-2.html"/>Unit Testing iOS Applications with Xcode 4 - Robert Lisle.</a></li>
+      <li><a href="http://ideveloper.tv/video/unittestingcourse.html">Unit Testing With XCode - Graham Lee</a></li> 
+    </ul>
+  </section>
+</article>
+
+
+<!-- –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    </div>
+    <!-- content end -->
+    
+    <!-- content container -->
+    <div id="overlay"></div>      
+    <div id="background"></div>
+    <div id="stage"></div>
+  
+   </body>
+</html>
