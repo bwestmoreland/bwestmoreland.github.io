@@ -7,7 +7,7 @@ title: Latest News
       <section class="section alt" id="promo">
   <div class="container">
     <div class="hero-unit">
-      <h1>Latest Posts</h1>
+      <!--<h1>A Collection of Posts!</h1>-->
     </div>
   </div>
 </section>
@@ -23,7 +23,7 @@ title: Latest News
                   <a href={{ post.url }}> {{ post.title }} </a>
                   <small>
                     by
-                    <a href="#"> {{ post.author }}</a>,
+                    <a href={{ post.twitter }} target="_blank"> {{ post.author }}</a>,
                     {{ post.date | date_to_string }}
                   </small>
                 </h2>
@@ -43,12 +43,13 @@ title: Latest News
               {% endif %}
               
               <div id="post">
-                {{ post.excerpt }}
+                {{ post.excerpt }}<a href={{ post.url }}>... read more.</a>
               </div>
             </article>
           
         {% endfor %}
         
+        <!--
         <ul class="pager">
           <li class="previous">
             <a href="#">
@@ -62,7 +63,7 @@ title: Latest News
               <i class="icon-chevron-right"></i>
             </a>
           </li>
-        </ul>
+        </ul>-->
       </div>
       {% include aside.html %}
     </div>

@@ -6,8 +6,7 @@ layout: default
 <section class="section alt" id="promo">
   <div class="container">
     <div class="hero-unit">
-      <h1>Our blog</h1>
-      <p>Thats a single post page view</p>
+      <!--<h1>An Individual Post!</h1>-->
     </div>
   </div>
 </section>
@@ -19,10 +18,10 @@ layout: default
         <article class="blog-post">
           <header class="blog-header">
             <h2>
-              Lorem ipsum dolor
+              {{ page.title }}
               <small>
                 by
-                <a href="#">{{ page.author }}</a>,
+                <a href={{ page.twitter }} target="_blank">{{ page.author }}</a>,
                 {{ page.date | date_to_string }}
               </small>
             </h2>
