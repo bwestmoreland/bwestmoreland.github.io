@@ -20,8 +20,9 @@ You just give it a size, say 200w x 300h and include a /g if you want black and 
 
 {% endhighlight %}
 
-You're welcome.
+[You're welcome.][welcome]
 
 
 [placekitten]: http://placekitten.com
+[welcome]: http://placekitten.com/g/200/300
 
